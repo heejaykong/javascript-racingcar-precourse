@@ -1,5 +1,6 @@
 import { $, ID, ERROR_MSG } from '../utils/constants.js';
 import { validateCarNames } from '../utils/validations.js';
+import { template } from './templates/racingCountInputTemplate.js';
 
 export const handleCarNamesSubmit = (e) => {
   e.preventDefault();
@@ -10,9 +11,8 @@ export const handleCarNamesSubmit = (e) => {
     alert(ERROR_MSG.CAR_NAMES_SUBMIT);
   }
   if (isValid) {
+    template();
   }
-
-  clearInput($(`#${ID.CAR_NAMES_INPUT}`));
 };
 
 export const clearInput = ($element) => {
