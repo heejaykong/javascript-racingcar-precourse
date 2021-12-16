@@ -1,8 +1,6 @@
 import { $, ID, RULES } from '../utils/constants.js';
 
-export const validateCarNames = (carNamesInput) => {
-  const names = carNamesInput.split(',').map((name) => name.trim());
-
+export const validateCarNames = (names) => {
   if (isNotUnique(names)) {
     return false;
   }
