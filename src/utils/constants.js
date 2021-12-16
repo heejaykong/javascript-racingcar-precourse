@@ -14,9 +14,11 @@ export const ID = {
 export const RULES = {
   MAX_NAME_LENGTH: 5,
   MIN_NAME_LENGTH: 1,
+  MIN_RACING_COUNT: 1,
 };
 
 export const ERROR_MSG = {
   CAR_NAMES_SUBMIT:
-    '서로 다른 자동차 이름을 각 1자 이상 5자 이하로 콤마로 구분하여 입력해주세요.',
+    '서로 다른 자동차 이름을 각 1자 이상 5자 이하로 콤마로 구분하여 입력해 주세요.',
+  RACING_COUNT_SUBMIT: `1 이상의 숫자를 입력해 주세요.`,
 };

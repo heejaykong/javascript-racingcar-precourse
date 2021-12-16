@@ -28,3 +28,14 @@ export const isNotUnique = (names) => {
   const namesSet = new Set(names);
   return names.length !== namesSet.size;
 };
+
+export const validateCountInput = (racingCountInput) => {
+  if (isLessThanMinValue(racingCountInput)) {
+    return false;
+  }
+  return true;
+};
+
+export const isLessThanMinValue = (racingCount) => {
+  return racingCount < RULES.MIN_RACING_COUNT;
+};
