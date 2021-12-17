@@ -2,7 +2,7 @@ import { $, ID, ERROR_MSG } from '../utils/constants.js';
 import { template as carNamesInputTemplate } from '../view/templates/carNamesInputTemplate.js';
 import { template as racingCountInputTemplate } from '../view/templates/racingCountInputTemplate.js';
 import { template as racingResultTemplate } from '../view/templates/racingResultTemplate.js';
-import { paintRacingStage, clearInput } from '../view/InputView.js';
+import { paintRacingStage, paintWinners, clearInput } from '../view/InputView.js';
 import { validateCarNames, validateCountInput } from '../utils/validations.js';
 import { createCars } from '../utils/createCars.js';
 
@@ -48,6 +48,19 @@ export default class GameController {
       for (let i = 0; i < racingCountInput; i++) {
         paintRacingStage(cars);
       }
+      const winners = this.getWinners(cars);
+      paintWinners(winners);
     }
+  };
+
+  getWinners = (cars) => {
+    const maxDistanceAmongCars = Math.max.apply(
+      Math,
+      cars.map((car) => car.forwardCount)
+    );
+    const winners = cars.filter((car) => {
+      return car.forwardCount === maxDistanceAmongCars;
+    });
+    return winners;
   };
 }
