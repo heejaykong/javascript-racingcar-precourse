@@ -3,8 +3,6 @@ import { validateCarNames, validateCountInput } from '../utils/validations.js';
 import { createCars } from '../utils/createCars.js';
 import { template } from './templates/racingCountInputTemplate.js';
 
-let names = [];
-
 // export const handleCarNamesSubmit = (e) => {
 //   e.preventDefault();
 //   const carNamesInput = $(`#${ID.CAR_NAMES_INPUT}`).value;
@@ -33,6 +31,22 @@ let names = [];
 //     console.log(cars);
 //   }
 // };
+export const paintRacingStage = (cars) => {
+  cars.map((car) => {
+    car.run();
+    paintRacingCar(car.name, car.forwardCount);
+  });
+  $(`#${ID.APP}`).append(document.createElement('br'));
+};
+
+export const paintRacingCar = (name, forwardCount) => {
+  const $span = document.createElement('span');
+  ``;
+  const $br = document.createElement('br');
+  $span.innerHTML = `${name}: ${'-'.repeat(forwardCount)}`;
+
+  $(`#${ID.APP}`).append($span, $br);
+};
 
 export const clearInput = ($element) => {
   $element.value = '';

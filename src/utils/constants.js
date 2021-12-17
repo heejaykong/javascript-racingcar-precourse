@@ -15,6 +15,9 @@ export const RULES = {
   MAX_NAME_LENGTH: 5,
   MIN_NAME_LENGTH: 1,
   MIN_RACING_COUNT: 1,
+  MAX_RANDOM_NUMBER: 9,
+  MIN_RANDOM_NUMBER: 1,
+  MIN_GO_FORWARD: 4,
 };
 
 export const ERROR_MSG = {
