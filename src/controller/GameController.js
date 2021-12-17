@@ -2,7 +2,7 @@ import { $, ID, ERROR_MSG } from '../utils/constants.js';
 import { template as carNamesInputTemplate } from '../view/templates/carNamesInputTemplate.js';
 import { template as racingCountInputTemplate } from '../view/templates/racingCountInputTemplate.js';
 import { template as racingResultTemplate } from '../view/templates/racingResultTemplate.js';
-import { paintRacingStage, paintWinners, clearInput } from '../view/InputView.js';
+import { paintRacingStage, paintWinners } from '../view/OutputView.js';
 import { validateCarNames, validateCountInput } from '../utils/validations.js';
 import { createCars } from '../utils/createCars.js';
 
@@ -34,6 +34,7 @@ export default class GameController {
       );
     }
   };
+
   handleRacingCountSubmit = (e) => {
     e.preventDefault();
     const racingCountInput = $(`#${ID.RACING_COUNT_INPUT}`).value;
@@ -44,7 +45,6 @@ export default class GameController {
     if (isValid) {
       const cars = createCars(this.names);
       racingResultTemplate();
-
       for (let i = 0; i < racingCountInput; i++) {
         paintRacingStage(cars);
       }

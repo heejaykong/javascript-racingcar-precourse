@@ -1,4 +1,4 @@
-import { $, ID, RULES } from '../utils/constants.js';
+import { RULES } from '../utils/constants.js';
 
 export const validateCarNames = (names) => {
   if (isNotUnique(names)) {
